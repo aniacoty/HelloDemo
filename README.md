@@ -1,2 +1,2 @@
-Hello Mlodociana Dziewczynko
+Nie fikaj chlopczyku :P
 =========
