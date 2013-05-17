@@ -1,12 +1,37 @@
-@(message: String)
+@(kitchenForm: Form[Application.Kitchen])
+
+@import helper._
 
 <html>
 <head>
-    <title>Apocalyptik</title>
+    <title>Kuchenne zabawy</title>
     </head>
             <body style="background-color: #CDC0B0">
             <div class="text" style="background-color: #7FFFD4; color: #8B8378">
-                @message
+                <h1>Co wybierasz?</h1>
+                @form(action = routes.Application.doIt, args = 'id -> "kitchenForm") {
+
+                @inputText(
+                field = kitchenForm("name"),
+                args = '_label -> "Jak masz na imie?", 'placeholder -> "Ladnie"
+                )
+
+                @select(
+                field = kitchenForm("choice"),
+                options = options(
+                "" -> "Podloga",
+                "szafka" -> "Szafka",
+                "stol" -> "Stol",
+                "pralka" -> "Pralka"
+                ),
+                args = '_label -> "Wybierz przyrzad"
+                )
+
+                <p class="buttons">
+                    <input type="submit">
+                <p>
+
+                    }
             </div>
             </body>
     </html>
